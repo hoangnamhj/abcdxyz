@@ -1,0 +1,186 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { 
+  overflow: hidden; 
+  background: #000; 
+  font-family: 'Rajdhani', sans-serif; 
+  color: white; 
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.video-background {
+  position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+  object-fit: cover; z-index: -1; filter: brightness(0.6);
+}
+
+.click-to-enter {
+  position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+  background: #000; z-index: 9999;
+  display: flex; justify-content: center; align-items: center;
+  cursor: pointer; transition: opacity 0.8s ease;
+}
+.click-text { font-size: 24px; letter-spacing: 2px; animation: blink 2s infinite; }
+
+.loading-overlay {
+  position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+  background: #000; z-index: 10000;
+  display: flex; justify-content: center; align-items: center; flex-direction: column;
+  transition: opacity 0.5s ease;
+}
+.loader {
+  border: 4px solid #f3f3f3; border-top: 4px solid #00f2ff;
+  border-radius: 50%; width: 40px; height: 40px;
+  animation: spin 1s linear infinite; margin-bottom: 10px;
+}
+
+.content-container {
+  opacity: 0; transform: scale(0.9); transition: all 1s ease;
+  perspective: 1000px;
+}
+.content-container.show { opacity: 1; transform: scale(1); }
+
+.card {
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 40px; border-radius: 20px;
+  text-align: center; width: 350px;
+  box-shadow: 0 0 20px rgba(0, 242, 255, 0.2);
+  transform-style: preserve-3d;
+  transition: transform 0.1s;
+}
+
+/* --- XỬ LÝ AVATAR CHÍNH --- */
+.discord-avatar-container {
+  position: relative;
+  width: 150px; 
+  height: 150px;
+  margin: 0 auto 15px auto;
+  display: flex;
+  justify-content: center; 
+  align-items: center;    
+}
+
+.avatar-base {
+  width: 120px; 
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  z-index: 1;
+}
+
+.avatar-frame {
+  position: absolute;
+  top: 50%;      
+  left: 50%;     
+  transform: translate(-50%, -50%); 
+  width: 160px;  
+  height: 160px; 
+  z-index: 2;
+  pointer-events: none;
+}
+
+.card h2 { font-size: 28px; margin-bottom: 5px; text-transform: uppercase; letter-spacing: 1px; }
+.card p { font-size: 16px; color: #ccc; margin-bottom: 20px; }
+
+.card__social a {
+  color: white; font-size: 20px; margin: 0 10px;
+  transition: 0.3s; display: inline-block;
+}
+.card__social a:hover { color: #00f2ff; transform: translateY(-3px); }
+
+.stats-container {
+  display: flex; justify-content: center; align-items: center;
+  margin-top: 15px; padding: 8px 15px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 15px; width: fit-content; margin-left: auto; margin-right: auto;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+.stat-item {
+  display: flex; align-items: center; gap: 6px;
+  color: #ccc; font-size: 14px; font-weight: 600;
+  transition: transform 0.2s;
+}
+.stat-separator { width: 1px; height: 12px; background: rgba(255, 255, 255, 0.2); margin: 0 12px; }
+.liked { color: #ff4757; text-shadow: 0 0 10px #ff4757; }
+#like-btn { cursor: pointer; }
+#like-btn:active { transform: scale(0.9); }
+
+.button-link button {
+  margin-top: 20px; padding: 10px 30px;
+  background: transparent; color: #00f2ff;
+  border: 2px solid #00f2ff; border-radius: 25px;
+  font-family: 'Rajdhani', sans-serif; font-weight: bold; font-size: 16px;
+  cursor: pointer; transition: 0.3s;
+}
+.button-link button:hover { background: #00f2ff; color: black; box-shadow: 0 0 15px #00f2ff; }
+
+.particle { position: absolute; background: white; border-radius: 50%; opacity: 0; pointer-events: none; }
+@keyframes float { 0% { transform: translateY(0); opacity: 0; } 50% { opacity: 0.8; } 100% { transform: translateY(-100vh); opacity: 0; } }
+@keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+@keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
+
+#music-control {
+  position: fixed; bottom: 20px; left: 20px;
+  width: 40px; height: 40px; border-radius: 50%;
+  background: rgba(0,0,0,0.5); border: 1px solid white;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer; opacity: 0; transition: 1s; z-index: 100;
+}
+#music-control:hover { background: #00f2ff; border-color: #00f2ff; }
+
+/* --- SKIN: SÓNG XANH (FINAL FIX: HIỆN KHUNG RẮN + ẢNH NỀN) --- */
+
+.discord-nameplate-base {
+  height: 56px !important; 
+  min-height: 0 !important;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  padding: 0 10px !important;
+  margin-top: 15px !important;
+  box-sizing: border-box;
+  text-align: left !important;
+  
+  /* QUAN TRỌNG: Đổi thành visible để khung rắn không bị cắt mất */
+  overflow: visible !important; 
+  position: relative;
+}
+
+.skin-blue-wave {
+  /* Ảnh nền của bạn */
+  background: url('https://i.pinimg.com/originals/37/66/47/376647dd91edb8f6152868c63720bad7.gif') center center / cover no-repeat;
+  
+  /* Nếu ảnh lỗi thì hiện màu này */
+  background-color: #0d3252;
+  
+  border: 1px solid rgba(0, 195, 255, 0.4);
+  box-shadow: 0 0 10px rgba(0, 195, 255, 0.2);
+  color: #ffffff;
+}
+
+.name-info {
+  flex-grow: 1; display: flex; flex-direction: column; justify-content: center;
+  padding-left: 15px; /* Cách avatar xa hơn chút cho thoáng */
+  z-index: 5;
+  padding-top: 14px !important; /* Căn chỉnh lại độ cao chữ cho vừa mắt */
+}
+
+.username-red {
+  color: #ffffff; font-weight: 600; font-size: 15px !important;
+  margin-bottom: 0; text-transform: none !important;
+  text-shadow: 0 0 4px rgba(0,0,0,0.8);
+}
+
+.status-text {
+  font-size: 12px !important; color: #a0cce3; margin: 0;
+  max-width: 140px;
+  text-shadow: 0 0 4px rgba(0,0,0,0.8);
+}
+
+/* Đảm bảo khung rắn nằm đè lên trên cùng */
+.avatar-decoration-snake {
+  z-index: 10 !important; 
+}

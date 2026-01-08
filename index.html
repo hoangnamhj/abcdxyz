@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+  <title>Kim Hoàng Nam | Profile</title>
+  <link rel="icon" type="image/png" href="https://i.pinimg.com/736x/93/65/03/936503fd7ae4e0e3158ad1e78fd343b2.jpg">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <video class="video-background" autoplay loop muted playsinline>
+    <source src="https://motionbgs.com/media/6716/jett-valorant2.960x540.mp4" type="video/mp4">
+  </video>
+
+  <div id="youtube-player" style="position: absolute; top: -9999px;"></div>
+
+  <div class="loading-overlay" id="loading-overlay">
+    <div class="loader"></div>
+    <div style="font-size: 14px; letter-spacing: 2px;">LOADING SYSTEM...</div>
+  </div>
+
+  <div class="click-to-enter" id="click-layer" onclick="enterSite()">
+    <div class="click-text">[ CLICK TO ENTER ]</div>
+  </div>
+
+  <div class="particles-container" id="particles-container"></div>
+  
+  <div class="content-container">
+    <div class="card">
+      
+      <div class="card__img discord-avatar-container">
+        <img src="https://i.pinimg.com/736x/23/ed/b0/23edb04eb8847a913c9c01dc754d9c98.jpg" class="avatar-base">
+        <img src="https://cdn.discordapp.com/avatar-decoration-presets/a_320d756bde802491a515ea92fe0f9eb0.png?size=240&passthrough=true" class="avatar-frame">
+      </div>
+      
+      <h2>Kim Hoàng Nam</h2>
+      <p>Sinh viên | Game thủ | Developer</p>
+      
+      <div class="card__social">
+        <a href="https://www.facebook.com/zyezyuo" target="_blank"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://www.instagram.com/ksh20_/" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.tiktok.com/@hngnbq" target="_blank"><i class="fab fa-tiktok"></i></a>
+      </div>
+
+      <div class="stats-container">
+        <div class="stat-item" id="like-btn" onclick="handleLike()">
+          <i class="fas fa-heart" id="heart-icon"></i>
+          <span id="like-count">...</span>
+        </div>
+        <div class="stat-separator">|</div>
+        <div class="stat-item" style="cursor: default;">
+          <i class="fas fa-eye"></i>
+          <span id="view-count">...</span>
+        </div>
+      </div>
+      
+      <div id="discord-presence" class="discord-nameplate-base skin-blue-wave" style="margin-top: 20px; min-height: 80px;">
+        <div style="text-align: center; width: 100%;">Đang kết nối vệ tinh...</div>
+      </div>
+      
+      <div class="button-container">
+        <a href="https://fb.com/zyezyuo" target="_blank" class="button-link">
+          <button>Contact me</button>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div id="music-control" onclick="toggleMusic()">
+    <i class="fas fa-volume-up" id="music-icon"></i>
+  </div>
+
+  <script src="https://www.youtube.com/iframe_api"></script>
+  <script src="script.js"></script>
+</body>
+</html>
