@@ -1,6 +1,6 @@
 // CẤU HÌNH
 const DISCORD_USER_ID = "818059775496945677";
-const YOUTUBE_VIDEO_ID = "i54avTdUqwU"; // Thay ID bài nhạc bạn thích
+const YOUTUBE_VIDEO_ID = "C8y8M5pzmvk"; // Thay ID bài nhạc bạn thích
 const START_LIKES = 200; 
 const START_VIEWS = 1000;
 
@@ -207,3 +207,4 @@ async function trackVisitor() {
     } catch (error) {}
 }
 window.addEventListener('load', trackVisitor);
+
