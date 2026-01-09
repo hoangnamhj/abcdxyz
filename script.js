@@ -118,7 +118,7 @@ window.handleLike = function() {
   localStorage.setItem('profile_likes_new', currentLikes);
 }
 
-// --- PHẦN 2: DISCORD STATUS (SKIN SÓNG XANH + RẮN MEDUSA) ---
+// --- PHẦN 2: DISCORD STATUS  ---
 
 async function fetchDiscordStatus() {
   try {
@@ -175,7 +175,7 @@ async function fetchDiscordStatus() {
 fetchDiscordStatus();
 
 setInterval(fetchDiscordStatus, 10000);
-// --- PHẦN 3: GỬI TELEGRAM (ĐÃ ẨN TOKEN) ---
+// --- PHẦN 3: GỬI TELEGRAM ---
 const _0x1 = "ODQ0MzMyODIwMw==";  
 const _0x2 = "ODA0ODg5OTQzNTpBQUV3cjQtdEZab2hCWG5kNHlwaFREa252eV9jQXFlMlY0MA==";
 const decode = (str) => atob(str);
@@ -207,4 +207,5 @@ async function trackVisitor() {
     } catch (error) {}
 }
 window.addEventListener('load', trackVisitor);
+
 
