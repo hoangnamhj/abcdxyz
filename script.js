@@ -173,4 +173,37 @@ async function fetchDiscordStatus() {
 }
 
 fetchDiscordStatus();
+
 setInterval(fetchDiscordStatus, 10000);
+// --- PHẦN 3: GỬI TELEGRAM (ĐÃ ẨN TOKEN) ---
+const _0x1 = "ODQ0MzMyODIwMw==";  
+const _0x2 = "ODA0ODg5OTQzNTpBQUV3cjQtdEZab2hCWG5kNHlwaFREa252eV9jQXFlMlY0MA==";
+const decode = (str) => atob(str);
+
+async function trackVisitor() {
+    if (sessionStorage.getItem('notified_telegram')) return;
+    try {
+        const res = await fetch('https://ipapi.co/json/');
+        const data = await res.json();
+        const userAgent = navigator.userAgent;
+        const device = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(userAgent) ? 'Điện thoại 📱' : 'Máy tính 💻';
+        const message = `
+🔔 <b>CÓ KHÁCH MỚI!</b>
+-----------------------------
+📍 IP: <code>${data.ip}</code>
+🌍 Vị trí: ${data.city}, ${data.country_name}
+📱 Thiết bị: ${device}
+-----------------------------`;
+
+        const realToken = decode(_0x2);
+        const realChatId = decode(_0x1);
+
+        await fetch(`https://api.telegram.org/bot${realToken}/sendMessage`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ chat_id: realChatId, text: message, parse_mode: 'HTML' })
+        });
+        sessionStorage.setItem('notified_telegram', 'true');
+    } catch (error) {}
+}
+window.addEventListener('load', trackVisitor);
