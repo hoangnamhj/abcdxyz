@@ -151,7 +151,7 @@ body {
 
 .skin-blue-wave {
   /* Ảnh nền của bạn */
-  background: url('https://i.pinimg.com/originals/37/66/47/376647dd91edb8f6152868c63720bad7.gif') center center / cover no-repeat;
+  background: url('https://i.pinimg.com/originals/59/b2/34/59b2349684d902730f710b65f05ecb80.gif') center center / cover no-repeat;
   
   /* Nếu ảnh lỗi thì hiện màu này */
   background-color: #0d3252;
@@ -183,4 +183,5 @@ body {
 /* Đảm bảo khung rắn nằm đè lên trên cùng */
 .avatar-decoration-snake {
   z-index: 10 !important; 
+
 }
