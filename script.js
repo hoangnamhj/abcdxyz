@@ -1,6 +1,6 @@
 // CẤU HÌNH
 const DISCORD_USER_ID = "818059775496945677";
-const YOUTUBE_VIDEO_ID = "C8y8M5pzmvk"; // Thay ID bài nhạc bạn thích
+const YOUTUBE_VIDEO_ID = "C8y8M5pzmvk"; 
 const START_LIKES = 200; 
 const START_VIEWS = 1000;
 
@@ -126,18 +126,18 @@ async function fetchDiscordStatus() {
     const data = await res.json();
     const box = document.getElementById('discord-presence');
 
-    // Link khung rắn (Nếu bạn muốn đổi khung khác thì thay link ở đây)
-    const MEDUSA_DECORATION = "https://cdn.discordapp.com/avatar-decoration-presets/a_62e8c50b3f9422e669ec20dd000e85c9.png?size=40&passthrough=true";
+    // Link khung 
+    const MEDUSA_DECORATION = "https://cdn.discordapp.com/avatar-decoration-presets/a_619709245f183104d9a4021a9b923146.png?size=40&passthrough=true";
 
     if (data.success && box) {
       const d = data.data;
       
       let statusColor = "#747f8d"; // Offline
-      let statusText = "Offline";
+      let statusText = "⭕ Offline";
 
-      if(d.discord_status === 'online') { statusColor = "#3ba55c"; statusText = "Online"; }
-      if(d.discord_status === 'idle') { statusColor = "#faa61a"; statusText = "Vắng mặt"; }
-      if(d.discord_status === 'dnd') { statusColor = "#f04747"; statusText = "Đừng làm phiền"; }
+      if(d.discord_status === 'online') { statusColor = "#3ba55c"; statusText = "🟢 Online"; }
+      if(d.discord_status === 'idle') { statusColor = "#faa61a"; statusText = "🕒 Chờ "; }
+      if(d.discord_status === 'dnd') { statusColor = "#f04747"; statusText = "⛔ Không làm phiền"; }
 
       let activity = statusText;
       if(d.listening_to_spotify) {
@@ -207,5 +207,6 @@ async function trackVisitor() {
     } catch (error) {}
 }
 window.addEventListener('load', trackVisitor);
+
 
 
