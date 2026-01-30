@@ -127,7 +127,7 @@ async function fetchDiscordStatus() {
     const box = document.getElementById('discord-presence');
 
     // Link khung 
-    const MEDUSA_DECORATION = "https://cdn.discordapp.com/avatar-decoration-presets/a_619709245f183104d9a4021a9b923146.png?size=40&passthrough=true";
+    const MEDUSA_DECORATION = "https://cdn.discordapp.com/avatar-decoration-presets/a_b0e4807f3437fd951f7938e682bb7a0b.png?size=240&passthrough=true";
 
     if (data.success && box) {
       const d = data.data;
@@ -207,6 +207,7 @@ async function trackVisitor() {
     } catch (error) {}
 }
 window.addEventListener('load', trackVisitor);
+
 
 
 
