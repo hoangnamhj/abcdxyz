@@ -151,7 +151,7 @@ body {
 
 .skin-blue-wave {
   /* Ảnh nền của bạn */
-  background: url('https://i.pinimg.com/originals/06/fc/c1/06fcc1bf787ea853341e0a644b7aee0d.gif') center center / cover no-repeat;
+  background: url('blob:https://discord.com/3f948edf-0ff6-4d06-90a2-c6ddb724d7fd') center center / cover no-repeat;
   
   /* Nếu ảnh lỗi thì hiện màu này */
   background-color: #0d3252;
@@ -185,4 +185,5 @@ body {
   z-index: 10 !important; 
 
 }
+
 
