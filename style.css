@@ -151,7 +151,7 @@ body {
 
 .skin-blue-wave {
   /* Ảnh nền của bạn */
-  background: url('https://s6.ezgif.com/tmp/ezgif-631fd0e086f959b1.gif') center center / cover no-repeat;
+  background: url('https://i.pinimg.com/originals/5a/dd/5a/5add5ac9e3806805133089fe06304f08.gif') center center / cover no-repeat;
   
   /* Nếu ảnh lỗi thì hiện màu này */
   background-color: #0d3252;
@@ -185,6 +185,7 @@ body {
   z-index: 10 !important; 
 
 }
+
 
 
 
